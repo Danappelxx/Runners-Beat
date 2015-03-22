@@ -5,7 +5,9 @@
 //  Created by Kyle Sandell on 3/21/15.
 //  Copyright (c) 2015 Kyle Sandell. All rights reserved.
 //
+
 #import <MyoKit/MyoKit.h>
+#import <Spotify/Spotify.h>
 #import "MyoViewController.h"
 #import "AppDelegate.h"
 
@@ -21,7 +23,8 @@
 @property int steps;
 @property float timeBetween;
 @property int stepsPerMinute;
-
+@property NSString *clientID;
+@property NSString *clientSecret;
 //@property (nonatomic, retain) UINavigationController *navigationController;
 @end
 
@@ -29,6 +32,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.clientID=@"b25dc953e6ce49ef8c36fb32813177d8";
+    self.clientSecret=@"ff3e24c8633c4176ab30f5c748e23db8";
     // Do any additional setup after loading the view, typically from a nib.
     self.steps=0;
     self.timeBetween=0;
@@ -144,5 +149,8 @@
        [super didReceiveMemoryWarning];
        // Dispose of any resources that can be recreated.
    }
+-(void)pickSongBasedOnBPM{
+    
+}
    
    @end

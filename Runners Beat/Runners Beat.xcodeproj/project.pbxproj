@@ -14,9 +14,11 @@
 		C671C76E1ABE311B007DAB8C /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C671C76D1ABE311B007DAB8C /* Images.xcassets */; };
 		C671C7711ABE311B007DAB8C /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = C671C76F1ABE311B007DAB8C /* LaunchScreen.xib */; };
 		C671C77D1ABE311C007DAB8C /* Runners_BeatTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C671C77C1ABE311C007DAB8C /* Runners_BeatTests.m */; };
-		C671C7871ABE3173007DAB8C /* MyoKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C671C7861ABE3173007DAB8C /* MyoKit.framework */; };
 		C671C7891ABE3195007DAB8C /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C671C7881ABE3195007DAB8C /* SystemConfiguration.framework */; };
 		C671C78B1ABE319C007DAB8C /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C671C78A1ABE319C007DAB8C /* CoreBluetooth.framework */; };
+		C671C78F1ABE484C007DAB8C /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C671C78E1ABE484C007DAB8C /* AVFoundation.framework */; };
+		C671C7911ABE49A3007DAB8C /* MyoKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C671C7901ABE49A3007DAB8C /* MyoKit.framework */; };
+		C671C7931ABE4A1A007DAB8C /* Spotify.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C671C7921ABE4A1A007DAB8C /* Spotify.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,9 +45,11 @@
 		C671C7761ABE311C007DAB8C /* Runners BeatTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Runners BeatTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C671C77B1ABE311C007DAB8C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C671C77C1ABE311C007DAB8C /* Runners_BeatTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Runners_BeatTests.m; sourceTree = "<group>"; };
-		C671C7861ABE3173007DAB8C /* MyoKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MyoKit.framework; path = "../../Run Beat/MyoKit.framework"; sourceTree = "<group>"; };
 		C671C7881ABE3195007DAB8C /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		C671C78A1ABE319C007DAB8C /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = System/Library/Frameworks/CoreBluetooth.framework; sourceTree = SDKROOT; };
+		C671C78E1ABE484C007DAB8C /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		C671C7901ABE49A3007DAB8C /* MyoKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MyoKit.framework; path = "../../../Downloads/Myo-iOS-SDK-0.4.0/MyoKit.framework"; sourceTree = "<group>"; };
+		C671C7921ABE4A1A007DAB8C /* Spotify.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Spotify.framework; path = "../../../Downloads/ios-sdk-beta-7 2/Spotify.framework"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,8 +58,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				C671C78B1ABE319C007DAB8C /* CoreBluetooth.framework in Frameworks */,
+				C671C7911ABE49A3007DAB8C /* MyoKit.framework in Frameworks */,
 				C671C7891ABE3195007DAB8C /* SystemConfiguration.framework in Frameworks */,
-				C671C7871ABE3173007DAB8C /* MyoKit.framework in Frameworks */,
+				C671C7931ABE4A1A007DAB8C /* Spotify.framework in Frameworks */,
+				C671C78F1ABE484C007DAB8C /* AVFoundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -72,9 +78,11 @@
 		C671C7541ABE311B007DAB8C = {
 			isa = PBXGroup;
 			children = (
+				C671C7921ABE4A1A007DAB8C /* Spotify.framework */,
+				C671C7901ABE49A3007DAB8C /* MyoKit.framework */,
+				C671C78E1ABE484C007DAB8C /* AVFoundation.framework */,
 				C671C78A1ABE319C007DAB8C /* CoreBluetooth.framework */,
 				C671C7881ABE3195007DAB8C /* SystemConfiguration.framework */,
-				C671C7861ABE3173007DAB8C /* MyoKit.framework */,
 				C671C75F1ABE311B007DAB8C /* Runners Beat */,
 				C671C7791ABE311C007DAB8C /* Runners BeatTests */,
 				C671C75E1ABE311B007DAB8C /* Products */,
@@ -364,10 +372,17 @@
 					"$(inherited)",
 					/Users/kasandell/Desktop/Run,
 					Beat,
+					"/Users/kasandell/Downloads/ios-sdk-beta-7",
+					/Users/kasandell/Desktop/Run,
+					Beat,
+					"/Users/kasandell/Downloads/Myo-iOS-SDK-0.4.0",
+					"/Users/kasandell/Downloads/ios-sdk-beta-7",
+					2,
 				);
 				INFOPLIST_FILE = "Runners Beat/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -380,10 +395,17 @@
 					"$(inherited)",
 					/Users/kasandell/Desktop/Run,
 					Beat,
+					"/Users/kasandell/Downloads/ios-sdk-beta-7",
+					/Users/kasandell/Desktop/Run,
+					Beat,
+					"/Users/kasandell/Downloads/Myo-iOS-SDK-0.4.0",
+					"/Users/kasandell/Downloads/ios-sdk-beta-7",
+					2,
 				);
 				INFOPLIST_FILE = "Runners Beat/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
@@ -441,6 +463,7 @@
 				C671C7821ABE311C007DAB8C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		C671C7831ABE311C007DAB8C /* Build configuration list for PBXNativeTarget "Runners BeatTests" */ = {
 			isa = XCConfigurationList;
@@ -449,6 +472,7 @@
 				C671C7851ABE311C007DAB8C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

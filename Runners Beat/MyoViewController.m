@@ -7,6 +7,7 @@
 //
 
 #import <MyoKit/MyoKit.h>
+#include <stdlib.h>
 //#import <Spotify/Spotify.h>
 #import "MyoViewController.h"
 #import "AppDelegate.h"
@@ -60,6 +61,7 @@
 @implementation MyoViewController
 
 
+
 - (IBAction)sendGetRequest:(UIButton *)sender {
     
     NSInteger tempminsteps = self.stepsPerMinute - 10;
@@ -87,16 +89,35 @@
     
     NSString *baseUrl = @"http://developer.echonest.com/api/v4/song/search?api_key=";
     NSString *apikey = @"8C5RHDLARNPQQW7FZ";
-    NSString *urlQueries = @"&format=json&results=1&";
-    NSString *minTempo = (@"min_tempo=%@", minsteps);
-    NSString *inBetween = (@"&");
-    NSString *maxTempo = (@"max_tempo=%@", maxsteps);
+    NSString *urlQueries = @"&format=json&results=100&min_tempo=";
+    NSString *minTempo = (@"%@", minsteps);
+    NSString *inBetween = (@"&max_tempo=");
+    NSString *maxTempo = (@"%@", maxsteps);
     NSString *buckets = @"&bucket=audio_summary&bucket=id:spotify";
     // allows for customization
     NSString *serverAddress=[NSString stringWithFormat:@"%@%@%@%@%@%@%@", baseUrl, apikey, urlQueries, minTempo, inBetween, maxTempo, buckets];
     
+    NSMutableDictionary *responseData = [self getSongInfo:serverAddress];
+    
+    NSLog(@"%@", responseData);
+    
+    
+    //    NSLog(@"%@", responseData[@"response"][@"artists"][0][@"@%", @"foreign_ids"][0][@"catalog"]);
+    
+    NSInteger randomint = arc4random_uniform(99);
+    
+    NSLog(@"%d", randomint);
+    
+    NSString *foreign_ids = [NSString stringWithFormat:@"%@", responseData[@"response"][@"songs"][randomint]];
+    NSLog(@"%@", foreign_ids);
+    
+    
+}
+
+- (NSMutableDictionary*)getSongInfo:(NSString *)requestURL {
+    
     NSMutableURLRequest *request =
-    [NSMutableURLRequest requestWithURL:[NSURL URLWithString:serverAddress]
+    [NSMutableURLRequest requestWithURL:[NSURL URLWithString:requestURL]
                             cachePolicy:NSURLRequestReloadIgnoringLocalAndRemoteCacheData
                         timeoutInterval:10
      ];
@@ -118,14 +139,10 @@
                                          JSONObjectWithData:responseDataJSON
                                          options:NSJSONReadingMutableContainers
                                          error:&error];
-    NSLog(@"%@", responseData);
     
     
-    //    NSLog(@"%@", responseData[@"response"][@"artists"][0][@"@%", @"foreign_ids"][0][@"catalog"]);
-    NSString *foreign_ids = [NSString stringWithFormat:@"%@", responseData[@"response"][@"songs"][0]];
-    NSLog(@"%@", foreign_ids);
     
-
+    return responseData;
 }
 
 - (void)viewDidLoad {
@@ -139,26 +156,26 @@
     bool havePrintBoxesOnTop=true;//THIS LINE IS SO IMPORTANT, make this true to show calibration and bpm, false to not show anything
     self.musicIsPaused=0;
     if(havePrintBoxesOnTop){
-    self.calibrationField=[[UITextField alloc] initWithFrame:CGRectMake((12+140), 24, 100, 24)];
-    [self.view addSubview:self.calibrationField];
-    if ([self.defaults objectForKey:@"Calibration"]!=NULL) {
-        self.calibrationValue=[[self.defaults objectForKey:@"Calibration"] floatValue];
-        [self.calibrationField setText:[NSString stringWithFormat:@"%f", self.calibrationValue]];
-    }
-    else{
-        self.calibrationValue=0.09;
-        [self.defaults setObject:[NSNumber numberWithFloat:self.calibrationValue] forKey:@"Calibration"];
-        [self.calibrationField setText:[NSString stringWithFormat:@"%f", self.calibrationValue]];
-    }
-    //[self.BPM initWithFrame:CGRectMake((self.view.frame.size.width/2), (self.view.frame.size.height/2), 150, 50)];
-    self.BPM=[[UILabel alloc] initWithFrame:CGRectMake(self.view.frame.size.width-(self.view.frame.size.width*.25), 24, 150, 24)];
-    [self.BPM setText:@"BPM: 0"];
-    //self.BPM.frame=CGRectMake();
-    [self.view addSubview:self.BPM];
-    
-    self.calibLabel=[[UILabel alloc] initWithFrame:CGRectMake(12, 24, 140, 24)];
-    [self.calibLabel setText:@"Calibration Level: "];
-    [self.view addSubview:self.calibLabel];
+        self.calibrationField=[[UITextField alloc] initWithFrame:CGRectMake((12+140), 24, 100, 24)];
+        [self.view addSubview:self.calibrationField];
+        if ([self.defaults objectForKey:@"Calibration"]!=NULL) {
+            self.calibrationValue=[[self.defaults objectForKey:@"Calibration"] floatValue];
+            [self.calibrationField setText:[NSString stringWithFormat:@"%f", self.calibrationValue]];
+        }
+        else{
+            self.calibrationValue=0.09;
+            [self.defaults setObject:[NSNumber numberWithFloat:self.calibrationValue] forKey:@"Calibration"];
+            [self.calibrationField setText:[NSString stringWithFormat:@"%f", self.calibrationValue]];
+        }
+        //[self.BPM initWithFrame:CGRectMake((self.view.frame.size.width/2), (self.view.frame.size.height/2), 150, 50)];
+        self.BPM=[[UILabel alloc] initWithFrame:CGRectMake(self.view.frame.size.width-(self.view.frame.size.width*.25), 24, 150, 24)];
+        [self.BPM setText:@"BPM: 0"];
+        //self.BPM.frame=CGRectMake();
+        [self.view addSubview:self.BPM];
+        
+        self.calibLabel=[[UILabel alloc] initWithFrame:CGRectMake(12, 24, 140, 24)];
+        [self.calibLabel setText:@"Calibration Level: "];
+        [self.view addSubview:self.calibLabel];
     }
     
     self.albumWorkImage=[[UIImage alloc] init];
@@ -171,7 +188,7 @@
     // Do any additional setup after loading the view, typically from a nib.
     self.steps=0;
     self.timeBetween=0;
-   
+    
     [self holdUnlockForMyo:self.myo];
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(didReceivePoseChange:)
@@ -195,13 +212,13 @@
 -(void)playPause{//pause/play
     //insert code to play or pause music
     
-     if(self.musicIsPaused)
-     {
+    if(self.musicIsPaused)
+    {
         //play music
-     }
-     else{
+    }
+    else{
         //pause music
-     }
+    }
     
 }
 -(void)skip{//skip music
@@ -250,7 +267,7 @@
     }
     
     //TODO: do something with the pose object.
-   // NSLog(@"HELLO FROM POSE CHANGE");
+    // NSLog(@"HELLO FROM POSE CHANGE");
 }
 
 - (void)didRecieveAccelerometerChange:(NSNotification*)notification {
@@ -258,7 +275,7 @@
     TLMVector3 accelVector=accel.vector;
     self.secondVector=self.initialVector;
     self.initialVector=accelVector;
-   // NSMutableArray *averageDataList = [NSMutableArray  arrayWithCapacity: 50];
+    // NSMutableArray *averageDataList = [NSMutableArray  arrayWithCapacity: 50];
     NSInteger averageDataList[50];
     int summation;
     int overflowCheck = 1;
@@ -309,7 +326,7 @@
     }
     
     //TODO: do something with the pose object.
-   // NSLog(@"HELLO FROM ACCELEROMETER CHANGE");
+    // NSLog(@"HELLO FROM ACCELEROMETER CHANGE");
 }
 -(float)getIntervalBetweenTimes:(NSDate *)date1 date2:(NSDate *)date2
 {
@@ -330,23 +347,23 @@
     return product;
 }
 
-   
+
 - (void)modalPresentMyoSettings {
-       UINavigationController *settings = [TLMSettingsViewController settingsInNavigationController];
-       
-       [self presentViewController:settings animated:YES completion:nil];
+    UINavigationController *settings = [TLMSettingsViewController settingsInNavigationController];
+    
+    [self presentViewController:settings animated:YES completion:nil];
 }
 - (void)pushMyoSettings {
-       TLMSettingsViewController *settings = [[TLMSettingsViewController alloc] init];
-       
-       [self.navigationController pushViewController:settings animated:YES];
-       [self presentViewController:self.navigationController animated:true completion:nil];
+    TLMSettingsViewController *settings = [[TLMSettingsViewController alloc] init];
+    
+    [self.navigationController pushViewController:settings animated:YES];
+    [self presentViewController:self.navigationController animated:true completion:nil];
 }
-   
+
 - (void)didReceiveMemoryWarning {
-       [super didReceiveMemoryWarning];
-       // Dispose of any resources that can be recreated.
-   }
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
 
 
 
@@ -354,5 +371,5 @@
     [super viewDidUnload];
     [self endHoldUnlockForMyo:self.myo immediately:YES];
 }
-   
-   @end
+
+@end

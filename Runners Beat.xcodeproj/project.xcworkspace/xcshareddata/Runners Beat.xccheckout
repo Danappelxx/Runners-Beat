@@ -14,11 +14,11 @@
 		<string>https://github.com/Danappelxx/Runners-Beat.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>Runners Beat/Runners Beat.xcodeproj</string>
+	<string>Runners Beat.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>97178DEF9892538B8DC29BA20251536D0DB83597</key>
-		<string>../../..</string>
+		<string>../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
 	<string>https://github.com/Danappelxx/Runners-Beat.git</string>

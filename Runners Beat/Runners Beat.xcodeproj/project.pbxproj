@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		371DACE21ABE86C600487DEF /* MyoKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 371DACE11ABE86C600487DEF /* MyoKit.framework */; };
+		371DACE61ABE9D0D00487DEF /* Spotify.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 371DACE51ABE9D0D00487DEF /* Spotify.framework */; };
 		C671C7631ABE311B007DAB8C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C671C7621ABE311B007DAB8C /* main.m */; };
 		C671C7661ABE311B007DAB8C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C671C7651ABE311B007DAB8C /* AppDelegate.m */; };
 		C671C7691ABE311B007DAB8C /* MyoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C671C7681ABE311B007DAB8C /* MyoViewController.m */; };
@@ -17,11 +19,7 @@
 		C671C7891ABE3195007DAB8C /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C671C7881ABE3195007DAB8C /* SystemConfiguration.framework */; };
 		C671C78B1ABE319C007DAB8C /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C671C78A1ABE319C007DAB8C /* CoreBluetooth.framework */; };
 		C671C78F1ABE484C007DAB8C /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C671C78E1ABE484C007DAB8C /* AVFoundation.framework */; };
-		C671C7911ABE49A3007DAB8C /* MyoKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C671C7901ABE49A3007DAB8C /* MyoKit.framework */; };
-		C671C7971ABE4FF6007DAB8C /* playpause.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C671C7951ABE4FF6007DAB8C /* playpause.jpg */; };
-		C671C7981ABE4FF6007DAB8C /* fastforwardimg.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C671C7961ABE4FF6007DAB8C /* fastforwardimg.jpg */; };
 		C671C79A1ABE7CCB007DAB8C /* about this crap in Resources */ = {isa = PBXBuildFile; fileRef = C671C7991ABE7CCB007DAB8C /* about this crap */; };
-		C671C79C1ABE80D5007DAB8C /* Spotify.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C671C79B1ABE80D5007DAB8C /* Spotify.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,6 +33,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		371DACE11ABE86C600487DEF /* MyoKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MyoKit.framework; path = "../../../../Downloads/Myo-iOS-SDK-0.4.0/MyoKit.framework"; sourceTree = "<group>"; };
+		371DACE51ABE9D0D00487DEF /* Spotify.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Spotify.framework; path = "../../../../Downloads/ios-sdk-beta-6/Spotify.framework"; sourceTree = "<group>"; };
 		C671C75D1ABE311B007DAB8C /* Runners Beat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Runners Beat.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C671C7611ABE311B007DAB8C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C671C7621ABE311B007DAB8C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -51,11 +51,7 @@
 		C671C7881ABE3195007DAB8C /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		C671C78A1ABE319C007DAB8C /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = System/Library/Frameworks/CoreBluetooth.framework; sourceTree = SDKROOT; };
 		C671C78E1ABE484C007DAB8C /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
-		C671C7901ABE49A3007DAB8C /* MyoKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MyoKit.framework; path = "../../../Downloads/Myo-iOS-SDK-0.4.0/MyoKit.framework"; sourceTree = "<group>"; };
-		C671C7951ABE4FF6007DAB8C /* playpause.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = playpause.jpg; path = ../../../Downloads/playpause.jpg; sourceTree = "<group>"; };
-		C671C7961ABE4FF6007DAB8C /* fastforwardimg.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = fastforwardimg.jpg; path = ../../../Downloads/fastforwardimg.jpg; sourceTree = "<group>"; };
 		C671C7991ABE7CCB007DAB8C /* about this crap */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "about this crap"; sourceTree = "<group>"; };
-		C671C79B1ABE80D5007DAB8C /* Spotify.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Spotify.framework; path = "../../../Downloads/ios-sdk-beta-7 2/Spotify.framework"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,9 +59,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C671C79C1ABE80D5007DAB8C /* Spotify.framework in Frameworks */,
+				371DACE61ABE9D0D00487DEF /* Spotify.framework in Frameworks */,
+				371DACE21ABE86C600487DEF /* MyoKit.framework in Frameworks */,
 				C671C78B1ABE319C007DAB8C /* CoreBluetooth.framework in Frameworks */,
-				C671C7911ABE49A3007DAB8C /* MyoKit.framework in Frameworks */,
 				C671C7891ABE3195007DAB8C /* SystemConfiguration.framework in Frameworks */,
 				C671C78F1ABE484C007DAB8C /* AVFoundation.framework in Frameworks */,
 			);
@@ -84,10 +80,8 @@
 		C671C7541ABE311B007DAB8C = {
 			isa = PBXGroup;
 			children = (
-				C671C79B1ABE80D5007DAB8C /* Spotify.framework */,
-				C671C7951ABE4FF6007DAB8C /* playpause.jpg */,
-				C671C7961ABE4FF6007DAB8C /* fastforwardimg.jpg */,
-				C671C7901ABE49A3007DAB8C /* MyoKit.framework */,
+				371DACE51ABE9D0D00487DEF /* Spotify.framework */,
+				371DACE11ABE86C600487DEF /* MyoKit.framework */,
 				C671C78E1ABE484C007DAB8C /* AVFoundation.framework */,
 				C671C78A1ABE319C007DAB8C /* CoreBluetooth.framework */,
 				C671C7881ABE3195007DAB8C /* SystemConfiguration.framework */,
@@ -197,6 +191,7 @@
 				TargetAttributes = {
 					C671C75C1ABE311B007DAB8C = {
 						CreatedOnToolsVersion = 6.2;
+						DevelopmentTeam = 7C23SQCYC6;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
 								enabled = 1;
@@ -233,10 +228,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C671C7971ABE4FF6007DAB8C /* playpause.jpg in Resources */,
 				C671C76C1ABE311B007DAB8C /* Main.storyboard in Resources */,
 				C671C79A1ABE7CCB007DAB8C /* about this crap in Resources */,
-				C671C7981ABE4FF6007DAB8C /* fastforwardimg.jpg in Resources */,
 				C671C7711ABE311B007DAB8C /* LaunchScreen.xib in Resources */,
 				C671C76E1ABE311B007DAB8C /* Images.xcassets in Resources */,
 			);
@@ -380,6 +373,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					/Users/kasandell/Desktop/Run,
@@ -394,12 +389,18 @@
 					2,
 					"/Users/kasandell/Downloads/ios-sdk-beta-7",
 					2,
+					"/Users/dan/Downloads/ios-sdk-beta-7",
+					"/Users/dan/Downloads/Myo-iOS-SDK-0.4.0",
+					"$(PROJECT_DIR)",
+					"/Users/dan/Downloads/ios-sdk-beta-6",
 				);
 				INFOPLIST_FILE = "Runners Beat/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -407,6 +408,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					/Users/kasandell/Desktop/Run,
@@ -421,12 +424,18 @@
 					2,
 					"/Users/kasandell/Downloads/ios-sdk-beta-7",
 					2,
+					"/Users/dan/Downloads/ios-sdk-beta-7",
+					"/Users/dan/Downloads/Myo-iOS-SDK-0.4.0",
+					"$(PROJECT_DIR)",
+					"/Users/dan/Downloads/ios-sdk-beta-6",
 				);
 				INFOPLIST_FILE = "Runners Beat/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

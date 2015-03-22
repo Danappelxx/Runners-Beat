@@ -63,7 +63,7 @@
                                    action:@selector(dismissKeyboard)];
     
     [self.view addGestureRecognizer:tap];
-    bool havePrintBoxesOnTop=false;//THIS LINE IS SO IMPORTANT, make this true to show calibration and bpm, false to not show anything
+    bool havePrintBoxesOnTop=true;//THIS LINE IS SO IMPORTANT, make this true to show calibration and bpm, false to not show anything
     self.musicIsPaused=0;
     if(havePrintBoxesOnTop){
     self.calibrationField=[[UITextField alloc] initWithFrame:CGRectMake((12+140), 24, 100, 24)];

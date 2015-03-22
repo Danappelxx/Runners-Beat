@@ -233,11 +233,13 @@
         self.musicIsPaused = YES;
     }
     [self.streamer setIsPlaying:self.musicIsPaused callback:nil];
+    NSLog(@"%@", self.musicIsPaused);
 }
 -(void)skip{//skip music
     //insert code to skip music
     //pick next song
     [self selectNextSong];
+    NSLog(@"Skipped!");
     
 }
 

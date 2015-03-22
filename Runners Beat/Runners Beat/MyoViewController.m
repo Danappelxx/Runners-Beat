@@ -24,7 +24,17 @@
 @property (nonatomic, retain) NSDate *thirdStep;
 @property int steps;
 @property float timeBetween;
-@property int stepsPerMinute;
+//THIS IS YOUR BPM YOU IDIOTS
+//THIS IS YOUR BPM YOU IDIOTS//THIS IS YOUR BPM YOU IDIOTS
+//THIS IS YOUR BPM YOU IDIOTS//THIS IS YOUR BPM YOU IDIOTS
+//THIS IS YOUR BPM YOU IDIOTS
+//THIS IS YOUR BPM YOU IDIOTS
+//THIS IS YOUR BPM YOU IDIOTS
+@property int stepsPerMinute;//THIS IS YOUR BPM YOU IDIOTS
+//THIS IS YOUR BPM YOU IDIOTS
+//THIS IS YOUR BPM YOU IDIOTS
+//THIS IS YOUR BPM YOU IDIOTS//THIS IS YOUR BPM YOU IDIOTS
+//THIS IS YOUR BPM YOU IDIOTS//THIS IS YOUR BPM YOU IDIOTS
 @property NSString *clientID;
 @property NSString *clientSecret;
 @property BOOL musicIsPaused;

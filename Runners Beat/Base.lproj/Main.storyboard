@@ -70,11 +70,6 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
-<<<<<<< HEAD
-            <point key="canvasLocation" x="537" y="279"/>
-=======
-            <point key="canvasLocation" x="598.5" y="291"/>
->>>>>>> origin/master
         </scene>
     </scenes>
     <resources>

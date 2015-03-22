@@ -56,7 +56,7 @@
 #include <stdlib.h>
 #import <Spotify/Spotify.h>
 #import "AppDelegate.h"
-#import <MyoKit/MyoKit.h>
+//#import <MyoKit/MyoKit.h>
 
 static NSString * const kClientId = @"b25dc953e6ce49ef8c36fb32813177d8";
 static NSString * const kCallbackURL = @"runners-beat-login://callback";
@@ -78,7 +78,7 @@ static NSString * const kTokenSwapServiceURL = @"http://192.241.221.149:1234/swa
     [application performSelector:@selector(openURL:) withObject:loginURL afterDelay:0.1];
     
     // Override point for customization after application launch.
-    [[TLMHub sharedHub] setLockingPolicy:TLMLockingPolicyNone];
+//    [[TLMHub sharedHub] setLockingPolicy:TLMLockingPolicyNone];
     
 //    [self modalPresentMyoSettings];
     

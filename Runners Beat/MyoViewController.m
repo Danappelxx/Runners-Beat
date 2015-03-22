@@ -18,6 +18,8 @@
 
 @property (nonatomic, strong) NSString *spotify_song_id;
 
+@property int playChecker;
+
 @property int stepsAverage; //step averagignggggg
 @property int averageCount;
 @property int lastStep;
@@ -224,18 +226,12 @@
 
 -(void)playPause{//pause/play
     //insert code to play or pause music
-//    if (self.streamer == nil)
-//    {
-//        self.streamer = [[SPTAudioStreamingController alloc] initWithClientId:self.clientID];
-//    }
-//    if(self.musicIsPaused)
-//    {
-//        //play music
-//    }
-//    else
-//    {
-//        //pause music
-//    }
+    if (self.playChecker == nil)
+    {
+        self.playChecker = 1;
+        [self selectNextSong];
+        self.musicIsPaused = YES;
+    }
     [self.streamer setIsPlaying:self.musicIsPaused callback:nil];
 }
 -(void)skip{//skip music

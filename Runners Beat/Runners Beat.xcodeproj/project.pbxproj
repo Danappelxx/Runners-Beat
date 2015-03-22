@@ -18,7 +18,8 @@
 		C671C78B1ABE319C007DAB8C /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C671C78A1ABE319C007DAB8C /* CoreBluetooth.framework */; };
 		C671C78F1ABE484C007DAB8C /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C671C78E1ABE484C007DAB8C /* AVFoundation.framework */; };
 		C671C7911ABE49A3007DAB8C /* MyoKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C671C7901ABE49A3007DAB8C /* MyoKit.framework */; };
-		C671C7931ABE4A1A007DAB8C /* Spotify.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C671C7921ABE4A1A007DAB8C /* Spotify.framework */; };
+		C671C7971ABE4FF6007DAB8C /* playpause.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C671C7951ABE4FF6007DAB8C /* playpause.jpg */; };
+		C671C7981ABE4FF6007DAB8C /* fastforwardimg.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C671C7961ABE4FF6007DAB8C /* fastforwardimg.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,7 +50,8 @@
 		C671C78A1ABE319C007DAB8C /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = System/Library/Frameworks/CoreBluetooth.framework; sourceTree = SDKROOT; };
 		C671C78E1ABE484C007DAB8C /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		C671C7901ABE49A3007DAB8C /* MyoKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MyoKit.framework; path = "../../../Downloads/Myo-iOS-SDK-0.4.0/MyoKit.framework"; sourceTree = "<group>"; };
-		C671C7921ABE4A1A007DAB8C /* Spotify.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Spotify.framework; path = "../../../Downloads/ios-sdk-beta-7 2/Spotify.framework"; sourceTree = "<group>"; };
+		C671C7951ABE4FF6007DAB8C /* playpause.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = playpause.jpg; path = ../../../Downloads/playpause.jpg; sourceTree = "<group>"; };
+		C671C7961ABE4FF6007DAB8C /* fastforwardimg.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = fastforwardimg.jpg; path = ../../../Downloads/fastforwardimg.jpg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,7 +62,6 @@
 				C671C78B1ABE319C007DAB8C /* CoreBluetooth.framework in Frameworks */,
 				C671C7911ABE49A3007DAB8C /* MyoKit.framework in Frameworks */,
 				C671C7891ABE3195007DAB8C /* SystemConfiguration.framework in Frameworks */,
-				C671C7931ABE4A1A007DAB8C /* Spotify.framework in Frameworks */,
 				C671C78F1ABE484C007DAB8C /* AVFoundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -78,7 +79,8 @@
 		C671C7541ABE311B007DAB8C = {
 			isa = PBXGroup;
 			children = (
-				C671C7921ABE4A1A007DAB8C /* Spotify.framework */,
+				C671C7951ABE4FF6007DAB8C /* playpause.jpg */,
+				C671C7961ABE4FF6007DAB8C /* fastforwardimg.jpg */,
 				C671C7901ABE49A3007DAB8C /* MyoKit.framework */,
 				C671C78E1ABE484C007DAB8C /* AVFoundation.framework */,
 				C671C78A1ABE319C007DAB8C /* CoreBluetooth.framework */,
@@ -224,7 +226,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C671C7971ABE4FF6007DAB8C /* playpause.jpg in Resources */,
 				C671C76C1ABE311B007DAB8C /* Main.storyboard in Resources */,
+				C671C7981ABE4FF6007DAB8C /* fastforwardimg.jpg in Resources */,
 				C671C7711ABE311B007DAB8C /* LaunchScreen.xib in Resources */,
 				C671C76E1ABE311B007DAB8C /* Images.xcassets in Resources */,
 			);
@@ -378,6 +382,8 @@
 					"/Users/kasandell/Downloads/Myo-iOS-SDK-0.4.0",
 					"/Users/kasandell/Downloads/ios-sdk-beta-7",
 					2,
+					"/Users/kasandell/Downloads/ios-sdk-beta-7",
+					2,
 				);
 				INFOPLIST_FILE = "Runners Beat/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
@@ -399,6 +405,8 @@
 					/Users/kasandell/Desktop/Run,
 					Beat,
 					"/Users/kasandell/Downloads/Myo-iOS-SDK-0.4.0",
+					"/Users/kasandell/Downloads/ios-sdk-beta-7",
+					2,
 					"/Users/kasandell/Downloads/ios-sdk-beta-7",
 					2,
 				);

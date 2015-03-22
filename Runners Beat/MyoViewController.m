@@ -17,6 +17,7 @@
 @interface MyoViewController ()
 
 @property (nonatomic, strong) NSString *spotify_song_id;
+
 @property int stepsAverage; //step averagignggggg
 @property int averageCount;
 @property int lastStep;
@@ -113,7 +114,7 @@
         NSLog(@"%ld", (long)randomint);
         
         self.spotify_song_id = [NSString stringWithFormat:@"%@", responseData[@"response"][@"songs"][randomint][@"tracks"][0][@"foreign_id"]];
-        
+
         NSLog(@"%@", self.spotify_song_id);
     }
 
@@ -223,19 +224,25 @@
 
 -(void)playPause{//pause/play
     //insert code to play or pause music
-    
-    if(self.musicIsPaused)
-    {
-        //play music
-    }
-    else{
-        //pause music
-    }
-    
+//    if (self.streamer == nil)
+//    {
+//        self.streamer = [[SPTAudioStreamingController alloc] initWithClientId:self.clientID];
+//    }
+//    if(self.musicIsPaused)
+//    {
+//        //play music
+//    }
+//    else
+//    {
+//        //pause music
+//    }
+    [self.streamer setIsPlaying:self.musicIsPaused callback:nil];
 }
 -(void)skip{//skip music
     //insert code to skip music
-    //skip
+    //pick next song
+    [self selectNextSong];
+    
 }
 
 -(void)selectNextSong{//pcik the next song
@@ -243,6 +250,30 @@
     [self processMinMax:([self stepsAverage])];
     //set album artwork here
     //start playing song here
+    if (self.streamer == nil)
+    {
+        self.streamer = [[SPTAudioStreamingController alloc] initWithClientId:self.clientID];
+    }
+    
+    [self.streamer loginWithSession:_session callback:^(NSError *error) {
+        
+        if (error != nil) {
+            NSLog(@"*** Enabling playback got error: %@", error);
+            return;
+        }
+        [SPTRequest requestItemAtURI:[NSURL URLWithString:self.spotify_song_id]
+                         withSession:nil
+                            callback:^(NSError *error, SPTTrack *track) {
+                                
+                                if (error != nil) {
+                                    NSLog(@"*** Track lookup got error %@", error);
+                                    return;
+                                }
+                                [self.streamer playTrackProvider:track callback:nil];
+                            }];
+    }
+     ];
+    
 }
 
 -(void)viewDidAppear: (BOOL)animated{

@@ -27,6 +27,29 @@
 
 @implementation MyoViewController
 
+- (IBAction)sendGetRequest:(UIButton *)sender {
+    NSString *serverAddress = @"http://developer.echonest.com/api/v4/artist/similar?api_key=FILDTEOIK2HBORODV&id=spotify:artist:4Z8W4fKeB5YxbusRsdQVPb&bucket=id:spotify";
+    
+    NSMutableURLRequest *request =
+    [NSMutableURLRequest requestWithURL:[NSURL URLWithString:serverAddress]
+                            cachePolicy:NSURLRequestReloadIgnoringLocalAndRemoteCacheData
+                        timeoutInterval:10
+     ];
+    
+    [request setHTTPMethod: @"GET"];
+    
+    NSError *requestError;
+    NSURLResponse *urlResponse = nil;
+    
+    
+    NSData *response1 = [NSURLConnection sendSynchronousRequest:request returningResponse:&urlResponse error:&requestError];
+    
+    NSString *responseData = [[NSString alloc]initWithData:response1 encoding:NSUTF8StringEncoding];
+    
+    NSLog(@"%@", responseData);
+
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
@@ -52,10 +75,10 @@
 
 -(void)viewDidAppear: (BOOL)animated{
     
-    if (!self.didConnectToMyo) {
-        [self modalPresentMyoSettings];
-        self.didConnectToMyo=TRUE;
-    }
+//    if (!self.didConnectToMyo) {
+//        [self modalPresentMyoSettings];
+//        self.didConnectToMyo=TRUE;
+//    }
 }
 
 - (void)holdUnlockForMyo:(TLMMyo *)myo {

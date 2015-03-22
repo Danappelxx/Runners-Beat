@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		37CE59091ABE45C400AADDAC /* MyoKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37CE59081ABE45C400AADDAC /* MyoKit.framework */; };
+		37CE590B1ABE45D000AADDAC /* Spotify.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37CE590A1ABE45D000AADDAC /* Spotify.framework */; };
 		C671C7631ABE311B007DAB8C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C671C7621ABE311B007DAB8C /* main.m */; };
 		C671C7661ABE311B007DAB8C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C671C7651ABE311B007DAB8C /* AppDelegate.m */; };
 		C671C7691ABE311B007DAB8C /* MyoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C671C7681ABE311B007DAB8C /* MyoViewController.m */; };
@@ -14,7 +16,6 @@
 		C671C76E1ABE311B007DAB8C /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C671C76D1ABE311B007DAB8C /* Images.xcassets */; };
 		C671C7711ABE311B007DAB8C /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = C671C76F1ABE311B007DAB8C /* LaunchScreen.xib */; };
 		C671C77D1ABE311C007DAB8C /* Runners_BeatTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C671C77C1ABE311C007DAB8C /* Runners_BeatTests.m */; };
-		C671C7871ABE3173007DAB8C /* MyoKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C671C7861ABE3173007DAB8C /* MyoKit.framework */; };
 		C671C7891ABE3195007DAB8C /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C671C7881ABE3195007DAB8C /* SystemConfiguration.framework */; };
 		C671C78B1ABE319C007DAB8C /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C671C78A1ABE319C007DAB8C /* CoreBluetooth.framework */; };
 /* End PBXBuildFile section */
@@ -30,6 +31,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		37CE59081ABE45C400AADDAC /* MyoKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MyoKit.framework; path = "../../../../Downloads/Myo-iOS-SDK-0.4.0/MyoKit.framework"; sourceTree = "<group>"; };
+		37CE590A1ABE45D000AADDAC /* Spotify.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Spotify.framework; path = "../../../../Downloads/ios-sdk-beta-7/Spotify.framework"; sourceTree = "<group>"; };
 		C671C75D1ABE311B007DAB8C /* Runners Beat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Runners Beat.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C671C7611ABE311B007DAB8C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C671C7621ABE311B007DAB8C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -43,7 +46,6 @@
 		C671C7761ABE311C007DAB8C /* Runners BeatTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Runners BeatTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C671C77B1ABE311C007DAB8C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C671C77C1ABE311C007DAB8C /* Runners_BeatTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Runners_BeatTests.m; sourceTree = "<group>"; };
-		C671C7861ABE3173007DAB8C /* MyoKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MyoKit.framework; path = "../../Run Beat/MyoKit.framework"; sourceTree = "<group>"; };
 		C671C7881ABE3195007DAB8C /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		C671C78A1ABE319C007DAB8C /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = System/Library/Frameworks/CoreBluetooth.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
@@ -53,9 +55,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				37CE590B1ABE45D000AADDAC /* Spotify.framework in Frameworks */,
+				37CE59091ABE45C400AADDAC /* MyoKit.framework in Frameworks */,
 				C671C78B1ABE319C007DAB8C /* CoreBluetooth.framework in Frameworks */,
 				C671C7891ABE3195007DAB8C /* SystemConfiguration.framework in Frameworks */,
-				C671C7871ABE3173007DAB8C /* MyoKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -72,9 +75,10 @@
 		C671C7541ABE311B007DAB8C = {
 			isa = PBXGroup;
 			children = (
+				37CE590A1ABE45D000AADDAC /* Spotify.framework */,
+				37CE59081ABE45C400AADDAC /* MyoKit.framework */,
 				C671C78A1ABE319C007DAB8C /* CoreBluetooth.framework */,
 				C671C7881ABE3195007DAB8C /* SystemConfiguration.framework */,
-				C671C7861ABE3173007DAB8C /* MyoKit.framework */,
 				C671C75F1ABE311B007DAB8C /* Runners Beat */,
 				C671C7791ABE311C007DAB8C /* Runners BeatTests */,
 				C671C75E1ABE311B007DAB8C /* Products */,
@@ -364,6 +368,8 @@
 					"$(inherited)",
 					/Users/kasandell/Desktop/Run,
 					Beat,
+					"/Users/dan/Downloads/Myo-iOS-SDK-0.4.0",
+					"/Users/dan/Downloads/ios-sdk-beta-7",
 				);
 				INFOPLIST_FILE = "Runners Beat/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
@@ -380,6 +386,8 @@
 					"$(inherited)",
 					/Users/kasandell/Desktop/Run,
 					Beat,
+					"/Users/dan/Downloads/Myo-iOS-SDK-0.4.0",
+					"/Users/dan/Downloads/ios-sdk-beta-7",
 				);
 				INFOPLIST_FILE = "Runners Beat/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
@@ -441,6 +449,7 @@
 				C671C7821ABE311C007DAB8C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		C671C7831ABE311C007DAB8C /* Build configuration list for PBXNativeTarget "Runners BeatTests" */ = {
 			isa = XCConfigurationList;
@@ -449,6 +458,7 @@
 				C671C7851ABE311C007DAB8C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

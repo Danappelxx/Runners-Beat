@@ -53,6 +53,7 @@
 // Created by Spotify on 04/09/14.
 // Copyright (c) 2014 Spotify. All rights reserved.
 
+#include <stdlib.h>
 #import <Spotify/Spotify.h>
 #import "AppDelegate.h"
 #import <MyoKit/MyoKit.h>
@@ -84,22 +85,99 @@ static NSString * const kTokenSwapServiceURL = @"http://192.241.221.149:1234/swa
     return YES;
 }
 
+- (NSMutableDictionary*)getSongInfo:(NSString *)requestURL {
+    
+    NSMutableURLRequest *request =
+    [NSMutableURLRequest requestWithURL:[NSURL URLWithString:requestURL]
+                            cachePolicy:NSURLRequestReloadIgnoringLocalAndRemoteCacheData
+                        timeoutInterval:10
+     ];
+    
+    [request setHTTPMethod: @"GET"];
+    
+    NSError *requestError;
+    NSURLResponse *urlResponse = nil;
+    
+    
+    NSData *responseDataJSON = [NSURLConnection sendSynchronousRequest:request returningResponse:&urlResponse error:&requestError];
+    
+    //    NSString *response = [[NSString alloc]initWithData:responseData encoding:NSUTF8StringEncoding];
+    //
+    //    NSLog(@"%@", response);
+    
+    NSError *error;
+    NSMutableDictionary *responseData = [NSJSONSerialization
+                                         JSONObjectWithData:responseDataJSON
+                                         options:NSJSONReadingMutableContainers
+                                         error:&error];
+    
+    
+    
+    return responseData;
+}
+
+
+
 -(BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation {
     
-    if([[SPTAuth defaultInstance]canHandleURL:url withDeclaredRedirectURL:[NSURL URLWithString:kCallbackURL]]) {
-        [[SPTAuth defaultInstance] handleAuthCallbackWithTriggeredAuthURL:url tokenSwapServiceEndpointAtURL:[NSURL URLWithString:kTokenSwapServiceURL] callback:^(NSError *error, SPTSession *session) {
-            
-            if (error != nil) {
-                NSLog(@"** Auth error: %@", error);
-                return;
-            }
-            
-            [self playUsingSession:session];
-        }];
-        return YES;
-    }
+
     
-    return NO;
+//    NSLog(@"%@", url);
+    
+//    NSLog(@"%@", [url query]);
+    
+//    NSString *urlquery = @"?";
+    NSString *urlquery = [url query];
+    
+    NSString *responseString = [NSString stringWithFormat:@"%@?%@", kTokenSwapServiceURL, urlquery];
+    
+//    NSLog(@"%@", responseString);
+    
+    NSMutableDictionary *fullResponse = [self getSongInfo:responseString];
+    
+    NSString *access_token = fullResponse[@"access_token"];
+    
+    NSString *refresh_token = fullResponse[@"refresh_token"];
+    
+    
+    
+    
+    NSLog(access_token);
+    NSLog(refresh_token);
+    
+    SPTSession *session = [[SPTSession alloc] initWithUserName:@"6504921745"
+                                                   accessToken:access_token
+                                                expirationDate:nil]; //set to something legit later
+    
+    NSLog(@"%@", session);
+    
+    
+    return YES;
+    
+////    url = @"http://192.241.221.149:1234/swap";
+////    ?code=AQDh58x-LZjox6WLEiEWEBTAfTUKQmSFQU3duY86XkW-swSBlEzGK8WqWUAlzSAGzUKm1mUa_uxyUujRIp92GVjtM49Esr28TV90EOzLVbIXo0pBhx-4AcZMDOyLKTMFhk6yDmVVBULY-AAwn6LZSAvPKFUATjZqmxp7wqcI-ySeV4R4rhN0xhxWxiiC1_dP6OOLpRaFS_hTbxHJQCQ
+//    
+//    if([[SPTAuth defaultInstance]canHandleURL:url withDeclaredRedirectURL:[NSURL URLWithString:kCallbackURL]]) {
+//        [[SPTAuth defaultInstance] handleAuthCallbackWithTriggeredAuthURL:url tokenSwapServiceEndpointAtURL:[NSURL URLWithString:kTokenSwapServiceURL] callback:^(NSError *error, SPTSession *session) {
+//            
+//            NSLog(@"%@", url);
+////            NSLog(@"%@", sourceApp);
+//            
+//            if(session == nil){
+//                NSLog(@"%@", session);
+//            }
+////            NSLog(@"%@", session);
+//            if (error != nil) {
+//                NSLog(@"** Auth error: %@", error);
+//                return;
+//            }
+//            
+//            [self playUsingSession:session];
+//        }];
+//        return YES;
+//    }
+//    
+//    return NO;
 }
 
 -(void)playUsingSession:(SPTSession *)session {

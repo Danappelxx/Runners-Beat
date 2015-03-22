@@ -33,9 +33,12 @@
     
     NSString *baseUrl = @"http://developer.echonest.com/api/v4/song/search?api_key=";
     NSString *apikey = @"8C5RHDLARNPQQW7FZ";
-    NSString *urlQueries = @"&format=json&results=1&min_tempo=100&max_tempo=101&bucket=audio_summary&bucket=id:spotify";
+    NSString *urlQueries = @"&format=json&results=1&";
+    NSString *minTempo = @"min_tempo=100&";
+    NSString *maxTempo = @"max_tempo=110&";
+    NSString *buckets = @"bucket=audio_summary&bucket=id:spotify";
     // allows for customization
-    NSString *serverAddress=[NSString stringWithFormat:@"%@%@%@", baseUrl, apikey, urlQueries];
+    NSString *serverAddress=[NSString stringWithFormat:@"%@%@%@%@%@%@", baseUrl, apikey, urlQueries, minTempo, maxTempo, buckets];
     
     NSMutableURLRequest *request =
     [NSMutableURLRequest requestWithURL:[NSURL URLWithString:serverAddress]

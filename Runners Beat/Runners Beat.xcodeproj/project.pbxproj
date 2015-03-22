@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		371F93C81ABE69C60004C33C /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 371F93C71ABE69C60004C33C /* AVFoundation.framework */; };
 		37CE59091ABE45C400AADDAC /* MyoKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37CE59081ABE45C400AADDAC /* MyoKit.framework */; };
 		37CE590B1ABE45D000AADDAC /* Spotify.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37CE590A1ABE45D000AADDAC /* Spotify.framework */; };
 		C671C7631ABE311B007DAB8C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C671C7621ABE311B007DAB8C /* main.m */; };
@@ -31,6 +32,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		371F93C71ABE69C60004C33C /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		37CE59081ABE45C400AADDAC /* MyoKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MyoKit.framework; path = "../../../../Downloads/Myo-iOS-SDK-0.4.0/MyoKit.framework"; sourceTree = "<group>"; };
 		37CE590A1ABE45D000AADDAC /* Spotify.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Spotify.framework; path = "../../../../Downloads/ios-sdk-beta-7/Spotify.framework"; sourceTree = "<group>"; };
 		C671C75D1ABE311B007DAB8C /* Runners Beat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Runners Beat.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -55,6 +57,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				371F93C81ABE69C60004C33C /* AVFoundation.framework in Frameworks */,
 				37CE590B1ABE45D000AADDAC /* Spotify.framework in Frameworks */,
 				37CE59091ABE45C400AADDAC /* MyoKit.framework in Frameworks */,
 				C671C78B1ABE319C007DAB8C /* CoreBluetooth.framework in Frameworks */,
@@ -75,6 +78,7 @@
 		C671C7541ABE311B007DAB8C = {
 			isa = PBXGroup;
 			children = (
+				371F93C71ABE69C60004C33C /* AVFoundation.framework */,
 				37CE590A1ABE45D000AADDAC /* Spotify.framework */,
 				37CE59081ABE45C400AADDAC /* MyoKit.framework */,
 				C671C78A1ABE319C007DAB8C /* CoreBluetooth.framework */,
@@ -374,6 +378,7 @@
 				INFOPLIST_FILE = "Runners Beat/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -392,6 +397,7 @@
 				INFOPLIST_FILE = "Runners Beat/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;

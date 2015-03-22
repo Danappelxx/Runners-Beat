@@ -55,6 +55,73 @@
 //go to line 216, 95, 107
 @implementation MyoViewController
 
+
+- (IBAction)sendGetRequest:(UIButton *)sender {
+    
+    NSInteger tempminsteps = self.stepsPerMinute - 10;
+    NSInteger tempmaxsteps = self.stepsPerMinute + 10;
+    
+    if(tempminsteps < 30) {
+        tempminsteps = 30;
+    }
+    
+    if(tempmaxsteps < 50) {
+        tempmaxsteps = 50;
+    }
+    
+    if(tempmaxsteps > 250)
+    {
+        tempmaxsteps = 250;
+        tempminsteps = 230;
+    }
+    
+    NSString *minsteps = [NSString stringWithFormat: @"%ld", (long)tempminsteps];
+    NSString *maxsteps = [NSString stringWithFormat: @"%ld", (long)tempmaxsteps];
+    
+    NSLog(@"%@",minsteps);
+    NSLog(@"%@",maxsteps);
+    
+    NSString *baseUrl = @"http://developer.echonest.com/api/v4/song/search?api_key=";
+    NSString *apikey = @"8C5RHDLARNPQQW7FZ";
+    NSString *urlQueries = @"&format=json&results=1&";
+    NSString *minTempo = (@"min_tempo=%@", minsteps);
+    NSString *inBetween = (@"&");
+    NSString *maxTempo = (@"max_tempo=%@", maxsteps);
+    NSString *buckets = @"&bucket=audio_summary&bucket=id:spotify";
+    // allows for customization
+    NSString *serverAddress=[NSString stringWithFormat:@"%@%@%@%@%@%@%@", baseUrl, apikey, urlQueries, minTempo, inBetween, maxTempo, buckets];
+    
+    NSMutableURLRequest *request =
+    [NSMutableURLRequest requestWithURL:[NSURL URLWithString:serverAddress]
+                            cachePolicy:NSURLRequestReloadIgnoringLocalAndRemoteCacheData
+                        timeoutInterval:10
+     ];
+    
+    [request setHTTPMethod: @"GET"];
+    
+    NSError *requestError;
+    NSURLResponse *urlResponse = nil;
+    
+    
+    NSData *responseDataJSON = [NSURLConnection sendSynchronousRequest:request returningResponse:&urlResponse error:&requestError];
+    
+    //    NSString *response = [[NSString alloc]initWithData:responseData encoding:NSUTF8StringEncoding];
+    //
+    //    NSLog(@"%@", response);
+    
+    NSError *error;
+    NSMutableDictionary *responseData = [NSJSONSerialization
+                                         JSONObjectWithData:responseDataJSON
+                                         options:NSJSONReadingMutableContainers
+                                         error:&error];
+    NSLog(@"%@", responseData);
+    
+    
+    //    NSLog(@"%@", responseData[@"response"][@"artists"][0][@"@%", @"foreign_ids"][0][@"catalog"]);
+    NSString *foreign_ids = [NSString stringWithFormat:@"%@", responseData[@"response"][@"songs"][0]];
+    NSLog(@"%@", foreign_ids);
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.defaults=[NSUserDefaults standardUserDefaults];
@@ -199,9 +266,11 @@
             int stepsMin=[self getApproxStepsPerMin:self.timeBetween];
             self.steps=1;
             self.firstStep=self.thirdStep;
-            self.stepsPerMinute=stepsMin;
+            
+            NSLog(@"Steps per minute: %d", self.stepsPerMinute); // REMOVE LATER!!!! (DONT MESS WITH KYLE)
             if (stepsMin<300) {
-                NSLog(@"%i",stepsMin);
+                self.stepsPerMinute=stepsMin;
+                NSLog(@"Steps min (variable): %i",stepsMin);
                 NSLog(@"%f",self.timeBetween/2);
                 self.BPM.text=[NSString stringWithFormat:@"BPM: %i ",stepsMin];
             }

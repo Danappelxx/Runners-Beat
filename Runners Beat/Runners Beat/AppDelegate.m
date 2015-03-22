@@ -4,10 +4,10 @@
 ////
 ////  Created by Kyle Sandell on 3/21/15.
 ////  Copyright (c) 2015 Kyle Sandell. All rights reserved.
-////
+//
 //
 //#import "AppDelegate.h"
-//#import <MyoKit/MyoKit.h>
+//
 //@interface AppDelegate ()
 //
 //@end
@@ -46,8 +46,6 @@
 //}
 //
 //
-//
-//
 //@end
 
 
@@ -57,6 +55,7 @@
 
 #import <Spotify/Spotify.h>
 #import "AppDelegate.h"
+#import <MyoKit/MyoKit.h>
 
 static NSString * const kClientId = @"b25dc953e6ce49ef8c36fb32813177d8";
 static NSString * const kCallbackURL = @"runners-beat-login://callback";
@@ -76,6 +75,12 @@ static NSString * const kTokenSwapServiceURL = @"http://localhost:1234/swap";
     NSURL *loginURL = [auth loginURLForClientId:kClientId declaredRedirectURL:[NSURL URLWithString:kCallbackURL] scopes:@[SPTAuthStreamingScope]];
     
     [application performSelector:@selector(openURL:) withObject:loginURL afterDelay:0.1];
+    
+    // Override point for customization after application launch.
+//    [[TLMHub sharedHub] setLockingPolicy:TLMLockingPolicyNone];
+    
+//    [self modalPresentMyoSettings];
+    return YES;
     
     return YES;
 }
@@ -125,17 +130,3 @@ static NSString * const kTokenSwapServiceURL = @"http://localhost:1234/swap";
 }
 
 @end
-
-
-
-
-
-
-
-
-
-
-
-
-
-

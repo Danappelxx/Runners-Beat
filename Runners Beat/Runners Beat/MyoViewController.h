@@ -1,4 +1,3 @@
-//
 //  ViewController.h
 //  Runners Beat
 //

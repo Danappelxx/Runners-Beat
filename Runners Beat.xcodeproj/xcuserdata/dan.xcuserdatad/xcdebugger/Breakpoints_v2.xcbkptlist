@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Runners Beat/MyoViewController.m"
-            timestampString = "448730948.962303"
+            timestampString = "448731684.121718"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "19"
-            endingLineNumber = "19"
+            startingLineNumber = "20"
+            endingLineNumber = "20"
             landmarkName = "stepsAverage"
             landmarkType = "19">
             <Locations>

@@ -16,6 +16,7 @@
 
 @interface MyoViewController ()
 
+@property (nonatomic, strong) NSString *spotify_song_id;
 @property int stepsAverage; //step averagignggggg
 @property int averageCount;
 @property int lastStep;
@@ -111,9 +112,9 @@
         
         NSLog(@"%ld", (long)randomint);
         
-        NSString *foreign_ids = [NSString stringWithFormat:@"%@", responseData[@"response"][@"songs"][randomint][@"tracks"][0][@"foreign_id"]];
-        NSString *spotify_song_id = [foreign_ids componentsSeparatedByString: @":"][2];
-        NSLog(@"%@", spotify_song_id);
+        self.spotify_song_id = [NSString stringWithFormat:@"%@", responseData[@"response"][@"songs"][randomint][@"tracks"][0][@"foreign_id"]];
+        
+        NSLog(@"%@", self.spotify_song_id);
     }
 
 }

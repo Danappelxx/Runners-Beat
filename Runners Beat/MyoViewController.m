@@ -92,7 +92,7 @@
     
     NSString *baseUrl = @"http://developer.echonest.com/api/v4/song/search?api_key=";
     NSString *apikey = @"8C5RHDLARNPQQW7FZ";
-    NSString *urlQueries = @"&format=json&results=100&&min_tempo=";
+    NSString *urlQueries = @"&format=json&results=100&min_tempo=";
     NSString *minTempo = (@"%@", minsteps);
     NSString *inBetween = (@"&max_tempo=");
     NSString *maxTempo = (@"%@", maxsteps);

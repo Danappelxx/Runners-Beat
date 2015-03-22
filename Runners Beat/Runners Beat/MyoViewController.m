@@ -26,6 +26,7 @@
 @property NSString *clientID;
 @property NSString *clientSecret;
 //@property (nonatomic, retain) UINavigationController *navigationController;
+//hi dere derp
 @end
 
 @implementation MyoViewController

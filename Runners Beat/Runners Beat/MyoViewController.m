@@ -22,13 +22,20 @@
 @property float timeBetween;
 @property int stepsPerMinute;
 
-//@property (nonatomic, retain) UINavigationController *navigationController;
+@property (weak, nonatomic) IBOutlet UITextView *requestLabel;
+
+@property (nonatomic, retain) UINavigationController *navigationController;
 @end
 
 @implementation MyoViewController
 
 - (IBAction)sendGetRequest:(UIButton *)sender {
-    NSString *serverAddress = @"http://developer.echonest.com/api/v4/artist/similar?api_key=FILDTEOIK2HBORODV&id=spotify:artist:4Z8W4fKeB5YxbusRsdQVPb&bucket=id:spotify";
+    
+    NSString *baseUrl = @"http://developer.echonest.com/api/v4/song/search?api_key=";
+    NSString *apikey = @"8C5RHDLARNPQQW7FZ";
+    NSString *urlQueries = @"&format=json&results=1&min_tempo=100&max_tempo=101&bucket=audio_summary&bucket=id:spotify";
+    // allows for customization
+    NSString *serverAddress=[NSString stringWithFormat:@"%@%@%@", baseUrl, apikey, urlQueries];
     
     NSMutableURLRequest *request =
     [NSMutableURLRequest requestWithURL:[NSURL URLWithString:serverAddress]
@@ -42,13 +49,27 @@
     NSURLResponse *urlResponse = nil;
     
     
-    NSData *response1 = [NSURLConnection sendSynchronousRequest:request returningResponse:&urlResponse error:&requestError];
+    NSData *responseDataJSON = [NSURLConnection sendSynchronousRequest:request returningResponse:&urlResponse error:&requestError];
     
-    NSString *responseData = [[NSString alloc]initWithData:response1 encoding:NSUTF8StringEncoding];
+//    NSString *response = [[NSString alloc]initWithData:responseData encoding:NSUTF8StringEncoding];
+//    
+//    NSLog(@"%@", response);
     
+    NSError *error;
+    NSMutableDictionary *responseData = [NSJSONSerialization
+                                       JSONObjectWithData:responseDataJSON
+                                       options:NSJSONReadingMutableContainers
+                                       error:&error];
     NSLog(@"%@", responseData);
+    
+    self.requestLabel.text = [NSString stringWithFormat:@"%@", responseData];
 
+    
+    //    NSLog(@"%@", responseData[@"response"][@"artists"][0][@"@%", @"foreign_ids"][0][@"catalog"]);
+    NSString *foreign_ids = [NSString stringWithFormat:@"%@", responseData[@"response"][@"songs"][0]];
+    NSLog(@"%@", foreign_ids);
 }
+
 
 - (void)viewDidLoad {
     [super viewDidLoad];

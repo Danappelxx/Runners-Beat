@@ -61,39 +61,37 @@
 @implementation MyoViewController
 
 
-
-- (IBAction)sendGetRequest:(UIButton *)sender {
+- (void)processMinMax:(NSInteger)bpm {
+    NSInteger tempminbpm = bpm - 10;
+    NSInteger tempmaxbpm = bpm + 10;
     
-    NSInteger tempminsteps = self.stepsPerMinute - 10;
-    NSInteger tempmaxsteps = self.stepsPerMinute + 10;
-    
-    if(tempminsteps < 30) {
-        tempminsteps = 30;
+    if (tempminbpm < 30) {
+        tempminbpm = 30;
     }
     
-    if(tempmaxsteps < 50) {
-        tempmaxsteps = 50;
+    if (tempmaxbpm < 50) {
+        tempmaxbpm = 50;
     }
     
-    if(tempmaxsteps > 250)
-    {
-        tempmaxsteps = 250;
-        tempminsteps = 230;
+    if (tempmaxbpm > 250) {
+        tempmaxbpm = 250;
+        tempminbpm = 250;
     }
     
-    NSString *minsteps = [NSString stringWithFormat: @"%ld", (long)tempminsteps];
-    NSString *maxsteps = [NSString stringWithFormat: @"%ld", (long)tempmaxsteps];
+    NSString *minsteps = [NSString stringWithFormat:@"%ld", (long)tempminbpm];
+    NSString *maxsteps = [NSString stringWithFormat:@"%ld", (long)tempmaxbpm];
     
     NSLog(@"%@",minsteps);
     NSLog(@"%@",maxsteps);
     
     NSString *baseUrl = @"http://developer.echonest.com/api/v4/song/search?api_key=";
     NSString *apikey = @"8C5RHDLARNPQQW7FZ";
-    NSString *urlQueries = @"&format=json&results=100&min_tempo=";
+    NSString *urlQueries = @"&format=json&results=100&&min_tempo=";
     NSString *minTempo = (@"%@", minsteps);
     NSString *inBetween = (@"&max_tempo=");
     NSString *maxTempo = (@"%@", maxsteps);
-    NSString *buckets = @"&bucket=audio_summary&bucket=id:spotify";
+    NSString *buckets = @"&bucket=audio_summary&bucket=id:spotify&bucket=tracks";
+    
     // allows for customization
     NSString *serverAddress=[NSString stringWithFormat:@"%@%@%@%@%@%@%@", baseUrl, apikey, urlQueries, minTempo, inBetween, maxTempo, buckets];
     
@@ -104,13 +102,26 @@
     
     //    NSLog(@"%@", responseData[@"response"][@"artists"][0][@"@%", @"foreign_ids"][0][@"catalog"]);
     
-    NSInteger randomint = arc4random_uniform(99);
+    if ([responseData[@"response"][@"songs"] count] < 1) {
+        [self processMinMax:(self.stepsAverage)];
+        NSLog(@"Empty Query");
+    } else {
+        
+        NSInteger randomint = arc4random_uniform([responseData[@"response"][@"songs"] count]);
+        
+        NSLog(@"%ld", (long)randomint);
+        
+        NSString *foreign_ids = [NSString stringWithFormat:@"%@", responseData[@"response"][@"songs"][randomint][@"tracks"][0][@"foreign_id"]];
+        NSString *spotify_song_id = [foreign_ids componentsSeparatedByString: @":"][2];
+        NSLog(@"%@", spotify_song_id);
+    }
+
+}
+
+
+- (IBAction)sendGetRequest:(UIButton *)sender {
     
-    NSLog(@"%d", randomint);
-    
-    NSString *foreign_ids = [NSString stringWithFormat:@"%@", responseData[@"response"][@"songs"][randomint]];
-    NSLog(@"%@", foreign_ids);
-    
+    [self processMinMax:(self.stepsPerMinute)];
     
 }
 
@@ -228,6 +239,7 @@
 
 -(void)selectNextSong{//pcik the next song
     //pick song here
+    [self processMinMax:([self stepsAverage])];
     //set album artwork here
     //start playing song here
 }

@@ -57,6 +57,7 @@
 @property (nonatomic, retain) SPTSession *session;//session
 @property (nonatomic, retain) SPTAudioStreamingController *streamer;//stream music
 @property (nonatomic, readonly) BOOL isPlaying;
+@property (nonatomic, readonly, copy) NSDictionary *currentTrackMetadata;
 
 @property BOOL observerCheck;
 //@property (nonatomic, retain) AVAudio
@@ -66,7 +67,13 @@
 //go to line 216, 95, 107
 @implementation MyoViewController
 
+//-(void)printMetadata
+//{
+//    NSString *metaData = [@"%@\n%@\n%@", self.currentTrackMetadata[@"SPTAudioStreamingMetadataTrackName"], self.currentTrackMetadata[@"SPTAudioStreamingMetadataArtistName"], self.currentTrackMetadata[@"SPTAudioStreamingMetadataAlbumURI"];
+//}
 
+
+    
 - (void)processMinMax:(NSInteger)bpm {
     NSInteger tempminbpm = bpm - 10;
     NSInteger tempmaxbpm = bpm + 10;
@@ -132,6 +139,7 @@
     [self processMinMax:(self.stepsPerMinute)];
     
 }
+
 
 - (NSMutableDictionary*)getSongInfo:(NSString *)requestURL {
     
@@ -242,17 +250,23 @@
     [self.defaults setObject:[NSNumber numberWithFloat:self.calibrationValue] forKey:@"Calibration"];
 }
 
+- (IBAction)PlayPauseButton:(UIButton *)sender {
+    [self playPause];
+}
 
 -(void)playPause{//pause/play
     //insert code to play or pause music
-    if (self.playChecker == nil)
+    if (self.playChecker)
     {
         self.playChecker = 1;
         [self selectNextSong];
         self.musicIsPaused = YES;
     }
     [self.streamer setIsPlaying:self.musicIsPaused callback:nil];
-    NSLog(@"%@", self.musicIsPaused);
+    NSLog(@"%d", self.musicIsPaused);
+}
+- (IBAction)SkipButton:(UIButton *)sender {
+    [self skip];
 }
 
 -(void)skip{//skip music

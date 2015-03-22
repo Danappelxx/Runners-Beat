@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1B6072D91ABF4AEB006124D1 /* swiss-mountain-hill-alps-nature-34-iphone6-plus-wallpaper.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1B6072D81ABF4AEB006124D1 /* swiss-mountain-hill-alps-nature-34-iphone6-plus-wallpaper.jpg */; };
+		1B6072DB1ABF4CBC006124D1 /* Unknown.png in Resources */ = {isa = PBXBuildFile; fileRef = 1B6072DA1ABF4CBC006124D1 /* Unknown.png */; };
+		1B6072DD1ABF4D53006124D1 /* 2000px-Fast_forward_font_awesome.svg.png in Resources */ = {isa = PBXBuildFile; fileRef = 1B6072DC1ABF4D53006124D1 /* 2000px-Fast_forward_font_awesome.svg.png */; };
 		1B67EB161ABEB9750096248A /* Spotify.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B67EB151ABEB9750096248A /* Spotify.framework */; };
 		1B67EB181ABEB9840096248A /* MyoKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B67EB171ABEB9840096248A /* MyoKit.framework */; };
 		C671C7631ABE311B007DAB8C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C671C7621ABE311B007DAB8C /* main.m */; };
@@ -33,6 +36,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1B6072D81ABF4AEB006124D1 /* swiss-mountain-hill-alps-nature-34-iphone6-plus-wallpaper.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "swiss-mountain-hill-alps-nature-34-iphone6-plus-wallpaper.jpg"; sourceTree = "<group>"; };
+		1B6072DA1ABF4CBC006124D1 /* Unknown.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Unknown.png; sourceTree = "<group>"; };
+		1B6072DC1ABF4D53006124D1 /* 2000px-Fast_forward_font_awesome.svg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "2000px-Fast_forward_font_awesome.svg.png"; sourceTree = "<group>"; };
 		1B67EB151ABEB9750096248A /* Spotify.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Spotify.framework; sourceTree = "<group>"; };
 		1B67EB171ABEB9840096248A /* MyoKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = MyoKit.framework; sourceTree = "<group>"; };
 		C671C75D1ABE311B007DAB8C /* Runners Beat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Runners Beat.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -119,6 +125,9 @@
 		C671C7601ABE311B007DAB8C /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				1B6072DC1ABF4D53006124D1 /* 2000px-Fast_forward_font_awesome.svg.png */,
+				1B6072DA1ABF4CBC006124D1 /* Unknown.png */,
+				1B6072D81ABF4AEB006124D1 /* swiss-mountain-hill-alps-nature-34-iphone6-plus-wallpaper.jpg */,
 				C671C7611ABE311B007DAB8C /* Info.plist */,
 				C671C7621ABE311B007DAB8C /* main.m */,
 			);
@@ -230,8 +239,11 @@
 			files = (
 				C671C76C1ABE311B007DAB8C /* Main.storyboard in Resources */,
 				C671C79A1ABE7CCB007DAB8C /* about this crap in Resources */,
+				1B6072DB1ABF4CBC006124D1 /* Unknown.png in Resources */,
 				C671C7711ABE311B007DAB8C /* LaunchScreen.xib in Resources */,
 				C671C76E1ABE311B007DAB8C /* Images.xcassets in Resources */,
+				1B6072DD1ABF4D53006124D1 /* 2000px-Fast_forward_font_awesome.svg.png in Resources */,
+				1B6072D91ABF4AEB006124D1 /* swiss-mountain-hill-alps-nature-34-iphone6-plus-wallpaper.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -56,7 +56,9 @@
 @property (nonatomic, retain) UIImage *albumWorkImage;//image to load into imageview with artwork
 @property (nonatomic, retain) SPTSession *session;//session
 @property (nonatomic, retain) SPTAudioStreamingController *streamer;//stream music
+@property (nonatomic, readonly) BOOL isPlaying;
 
+@property BOOL observerCheck;
 //@property (nonatomic, retain) AVAudio
 @property float calibrationValue;//calibration value for miyo
 
@@ -95,9 +97,10 @@
     NSString *inBetween = (@"&max_tempo=");
     NSString *maxTempo = (@"%@", maxsteps);
     NSString *buckets = @"&bucket=audio_summary&bucket=id:spotify&bucket=tracks";
+    NSString *minEnergy = (@"&min_energy=0.1");
     
     // allows for customization
-    NSString *serverAddress=[NSString stringWithFormat:@"%@%@%@%@%@%@%@", baseUrl, apikey, urlQueries, minTempo, inBetween, maxTempo, buckets];
+    NSString *serverAddress=[NSString stringWithFormat:@"%@%@%@%@%@%@%@%@", baseUrl, apikey, urlQueries, minTempo, inBetween, maxTempo, buckets, minEnergy];
     
     NSMutableDictionary *responseData = [self getSongInfo:serverAddress];
     
@@ -215,6 +218,21 @@
                                                object:nil];
     [self.defaults synchronize];
     
+    if (self.streamer == nil)
+    {
+        self.streamer = [[SPTAudioStreamingController alloc] initWithClientId:self.clientID];
+    }
+    [self.streamer addObserver:self forKeyPath:@"isPlaying" options:NSKeyValueObservingOptionNew context:nil];
+    
+}
+
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
+    BOOL isPlaying = [[change objectForKey:NSKeyValueChangeNewKey] boolValue];
+    NSLog(@"%d", isPlaying);
+    if (isPlaying == NO && self.observerCheck == true)
+    {
+        [self selectNextSong];
+    }
 }
 
 -(void)dismissKeyboard {
@@ -235,6 +253,7 @@
     [self.streamer setIsPlaying:self.musicIsPaused callback:nil];
     NSLog(@"%@", self.musicIsPaused);
 }
+
 -(void)skip{//skip music
     //insert code to skip music
     //pick next song
@@ -252,6 +271,7 @@
     {
         self.streamer = [[SPTAudioStreamingController alloc] initWithClientId:self.clientID];
     }
+    [self.streamer addObserver:self forKeyPath:@"currentPlaybackPosition" options:NSKeyValueObservingOptionNew context:nil];
     
     [self.streamer loginWithSession:_session callback:^(NSError *error) {
         
@@ -268,6 +288,7 @@
                                     return;
                                 }
                                 [self.streamer playTrackProvider:track callback:nil];
+                                self.observerCheck = true;
                             }];
     }
      ];

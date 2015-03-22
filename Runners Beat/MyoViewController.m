@@ -98,9 +98,10 @@
     NSString *maxTempo = (@"%@", maxsteps);
     NSString *buckets = @"&bucket=audio_summary&bucket=id:spotify&bucket=tracks";
     NSString *minEnergy = (@"&min_energy=0.1");
+    NSString *minHotttnesss = (@"&artist_min_hotttnesss=0.25");
     
     // allows for customization
-    NSString *serverAddress=[NSString stringWithFormat:@"%@%@%@%@%@%@%@%@", baseUrl, apikey, urlQueries, minTempo, inBetween, maxTempo, buckets, minEnergy];
+    NSString *serverAddress=[NSString stringWithFormat:@"%@%@%@%@%@%@%@%@%@", baseUrl, apikey, urlQueries, minTempo, inBetween, maxTempo, buckets, minEnergy, minHotttnesss];
     
     NSMutableDictionary *responseData = [self getSongInfo:serverAddress];
     
